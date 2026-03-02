@@ -57,11 +57,11 @@ const Experience = () => {
     return (
         <section id="experience" ref={containerRef}>
             <div className="container">
-                <h2 style={{ fontSize: '2.5rem', textAlign: 'center', marginBottom: '4rem' }}>
+                <h2 style={{ fontSize: '2.5rem', textAlign: 'center', marginBottom: '2.5rem' }}>
                     Professional <span className="text-gradient">Journey</span>
                 </h2>
 
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '3rem', position: 'relative' }}>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem', position: 'relative' }}>
                     {/* Vertical Line Container */}
                     <div style={{ position: 'absolute', left: '2rem', top: 0, bottom: 0, width: '2px', background: 'rgba(255,255,255,0.05)', zIndex: 0 }}>
                         {/* Dynamic Filling Line */}
@@ -106,7 +106,7 @@ const Experience = () => {
                                 )}
                             </div>
 
-                            <div className="glass" style={{ padding: '2.5rem', flex: 1, position: 'relative', overflow: 'hidden' }}>
+                            <div className="glass" style={{ padding: '2rem', flex: 1, position: 'relative', overflow: 'hidden' }}>
                                 {/* Subtle background gradient for current role */}
                                 {exp.isCurrent && (
                                     <div style={{ position: 'absolute', top: 0, right: 0, width: '200px', height: '200px', background: 'radial-gradient(circle at top right, rgba(0, 255, 163, 0.05), transparent)', zIndex: 0 }} />

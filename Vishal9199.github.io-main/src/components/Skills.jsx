@@ -48,7 +48,7 @@ const Skills = () => {
                 <h2 style={{ fontSize: '2.5rem', textAlign: 'center', marginBottom: '1rem' }}>
                     Technical <span className="text-gradient">Proficiency</span>
                 </h2>
-                <p style={{ textAlign: 'center', color: 'var(--text-muted)', marginBottom: '4rem', maxWidth: '600px', marginInline: 'auto' }}>
+                <p style={{ textAlign: 'center', color: 'var(--text-muted)', marginBottom: '2.5rem', maxWidth: '600px', marginInline: 'auto' }}>
                     A comprehensive overview of my technical stack and expertise levels across different domains.
                 </p>
 

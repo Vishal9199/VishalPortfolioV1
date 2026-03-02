@@ -1,7 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap");
 
 @media (pointer: fine) {
-
   .hide-default-cursor,
   .hide-default-cursor * {
     cursor: none !important;
@@ -30,7 +29,7 @@
   --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-[data-theme='light'] {
+[data-theme="light"] {
   --bg-dark: #f5f5f7;
   --bg-card: rgba(0, 0, 0, 0.03);
   --text-main: #1d1d1f;
@@ -48,7 +47,15 @@
 }
 
 body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-family:
+    "Inter",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Helvetica,
+    Arial,
+    sans-serif;
   background-color: var(--bg-dark);
   color: var(--text-main);
   line-height: 1.6;
@@ -61,7 +68,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Outfit', sans-serif;
+  font-family: "Outfit", sans-serif;
   color: #fff;
 }
 
@@ -87,7 +94,7 @@ h6 {
 }
 
 section {
-  padding: 8rem 0;
+  padding: 4rem 0;
 }
 
 a {
@@ -139,7 +146,7 @@ button {
 .logo-text {
   font-size: 1.5rem;
   font-weight: 700;
-  font-family: 'Outfit', sans-serif;
+  font-family: "Outfit", sans-serif;
 }
 
 .nav-links {
@@ -221,4 +228,26 @@ button {
 
 ::-webkit-scrollbar-thumb:hover {
   background: #444;
+}
+
+/* Projects Grid Extensions */
+.project-card:hover {
+  border-color: var(--primary) !important;
+  box-shadow: 0 0 30px rgba(0, 255, 163, 0.1);
+  transform: translateY(-5px);
+}
+
+.project-card:hover .project-image {
+  transform: scale(1.05);
+  opacity: 0.7 !important;
+}
+
+@media (max-width: 768px) {
+  #projects .container > div:last-child {
+      grid-template-columns: 1fr !important;
+  }
+  
+  .project-card {
+      height: 350px !important;
+  }
 }

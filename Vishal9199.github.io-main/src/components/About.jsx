@@ -5,14 +5,14 @@ const About = () => {
     return (
         <section id="about">
             <div className="container">
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '4rem', alignItems: 'center' }}>
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2.5rem', alignItems: 'center' }}>
                     <motion.div
                         initial={{ opacity: 0, x: -50 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.8 }}
                         viewport={{ once: true }}
                     >
-                        <h2 style={{ fontSize: '2.5rem', marginBottom: '2rem' }}>
+                        <h2 style={{ fontSize: '2.5rem', marginBottom: '1.25rem' }}>
                             Bridging business needs with <span className="text-gradient">Oracle Cloud Integration</span>
                         </h2>
                         <div style={{ color: 'var(--text-muted)', fontSize: '1.1rem', display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>

@@ -79,73 +79,81 @@ const Projects = () => {
     ];
 
     return (
-        <section id="projects">
+        <section id="projects" style={{ padding: '8rem 0' }}>
             <div className="container">
-                <h2 style={{ fontSize: '2.5rem', textAlign: 'center', marginBottom: '4rem' }}>
-                    Featured <span className="text-gradient">Projects</span>
-                </h2>
+                <div style={{ marginBottom: '3rem' }}>
+                    <motion.h2 
+                        initial={{ opacity: 0, x: -20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        style={{ fontSize: '3rem', fontWeight: 800, letterSpacing: '-0.02em', marginBottom: '1rem' }}
+                    >
+                        Selected <span className="text-gradient">Creations.</span>
+                    </motion.h2>
+                    <p style={{ color: 'var(--text-muted)', fontSize: '1.1rem', maxWidth: '500px' }}>
+                        A collection of high-impact enterprise solutions and experimental side projects.
+                    </p>
+                </div>
 
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '2rem' }}>
-                    {projects.map((project, index) => (
-                        <motion.div
-                            key={index}
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.5, delay: index * 0.1 }}
-                            viewport={{ once: true }}
-                            className="glass"
-                            style={{ overflow: 'hidden', display: 'flex', flexDirection: 'column' }}
-                        >
-                            <div style={{ height: '200px', overflow: 'hidden', position: 'relative' }}>
-                                <img
-                                    src={project.image}
-                                    alt={project.title}
-                                    style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'var(--transition)' }}
-                                    onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.1)'}
-                                    onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
-                                />
-                                <div style={{ position: 'absolute', top: '1rem', right: '1rem' }}>
-                                    <button
-                                        onClick={() => setSelectedProject(project)}
-                                        className="glass"
-                                        style={{ padding: '0.5rem', borderRadius: '50%', color: 'var(--primary)', background: 'rgba(0,0,0,0.5)' }}
-                                    >
-                                        <Info size={18} />
-                                    </button>
+                <div style={{ 
+                    display: 'grid', 
+                    gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', 
+                    gap: '2rem',
+                }}>
+                    {projects.map((project, index) => {
+                        return (
+                            <motion.div
+                                key={index}
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.6, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
+                                viewport={{ once: true }}
+                                onClick={() => setSelectedProject(project)}
+                                className="glass project-card"
+                                style={{ 
+                                    position: 'relative',
+                                    borderRadius: '20px',
+                                    overflow: 'hidden',
+                                    cursor: 'none',
+                                    display: 'flex',
+                                    flexDirection: 'column',
+                                    height: '350px',
+                                    transition: 'transform 0.3s ease, border-color 0.3s ease',
+                                    border: '1px solid var(--glass-border)'
+                                }}
+                            >
+                                <div style={{ height: '100%', width: '100%', position: 'relative' }}>
+                                    <img
+                                        src={project.image}
+                                        alt={project.title}
+                                        style={{ width: '100%', height: '100%', objectFit: 'cover', opacity: 0.5, transition: '0.5s ease' }}
+                                        className="project-image"
+                                    />
+                                    <div style={{ 
+                                        position: 'absolute', 
+                                        inset: 0, 
+                                        background: 'linear-gradient(to top, rgba(5,5,5,0.95) 0%, rgba(5,5,5,0.6) 50%, rgba(5,5,5,0.2) 100%)',
+                                        padding: '2rem',
+                                        display: 'flex',
+                                        flexDirection: 'column',
+                                        justifyContent: 'flex-end'
+                                    }}>
+                                        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', marginBottom: '1.25rem' }}>
+                                            {project.tech.map((t) => (
+                                                <span key={t} style={{ fontSize: '0.65rem', background: 'rgba(0, 255, 163, 0.1)', padding: '0.25rem 0.75rem', borderRadius: '100px', color: 'var(--primary)', border: '1px solid rgba(0, 255, 163, 0.2)', fontWeight: 600 }}>
+                                                    {t}
+                                                </span>
+                                            ))}
+                                        </div>
+                                        <h3 style={{ fontSize: '1.4rem', marginBottom: '0.75rem', fontWeight: 800, color: '#fff' }}>{project.title}</h3>
+                                        <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', lineHeight: 1.6, overflow: 'hidden', display: '-webkit-box', WebkitLineClamp: 3, WebkitBoxOrient: 'vertical' }}>
+                                            {project.description}
+                                        </p>
+                                    </div>
                                 </div>
-                            </div>
-
-                            <div style={{ padding: '1.5rem', flex: 1, display: 'flex', flexDirection: 'column' }}>
-                                <h3 style={{ fontSize: '1.25rem', marginBottom: '0.75rem' }}>{project.title}</h3>
-                                <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', marginBottom: '1rem' }}>
-                                    {project.description}
-                                </p>
-
-                                {project.impact && (
-                                    <p style={{ color: 'var(--primary)', fontSize: '0.85rem', fontWeight: 500, marginBottom: '1.5rem', fontStyle: 'italic' }}>
-                                        Impact: {project.impact}
-                                    </p>
-                                )}
-
-                                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', marginBottom: '1.5rem' }}>
-                                    {project.tech.map((t) => (
-                                        <span key={t} style={{ fontSize: '0.75rem', background: 'rgba(255,255,255,0.05)', padding: '0.2rem 0.6rem', borderRadius: '4px', color: 'var(--secondary)' }}>
-                                            {t}
-                                        </span>
-                                    ))}
-                                </div>
-
-                                <div style={{ display: 'flex', gap: '1rem', marginTop: 'auto' }}>
-                                    <a href={project.github} target="_blank" rel="noreferrer" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.875rem' }} className="hover:text-primary">
-                                        <Github size={18} /> Code
-                                    </a>
-                                    <a href={project.link} target="_blank" rel="noreferrer" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.875rem' }} className="hover:text-primary">
-                                        <ExternalLink size={18} /> Demo
-                                    </a>
-                                </div>
-                            </div>
-                        </motion.div>
-                    ))}
+                            </motion.div>
+                        );
+                    })}
                 </div>
             </div>
 
