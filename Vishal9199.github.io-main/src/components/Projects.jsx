@@ -12,7 +12,7 @@ const Projects = () => {
             impact: 'Reduced manual processing time by 40% and improved data accuracy for multiple utility customers.',
             tech: ['Oracle VBCS', 'PCS', 'Oracle Cloud'],
             details: 'Developed custom UI components in VBCS and complex long-running business processes in PCS. Integrated with back-end REST APIs and managed state for complex multi-step application forms.',
-            image: '/assets/4i_apps_logo.png',
+            image: '/assets/NWS Logo.png',
             link: '#',
             github: '#'
         },
@@ -22,7 +22,7 @@ const Projects = () => {
             impact: 'Automated payroll synchronization for 2000+ employees, eliminating manual data entry errors.',
             tech: ['VBCS', 'OIC', 'Oracle OTL', 'PL/SQL'],
             details: 'Built robust error-handling mechanisms in OIC integrations. Wrote optimized PL/SQL procedures for complex business logic validation and data transformation before pushing to Oracle HCM.',
-            image: '/assets/4i_apps_logo.png',
+            image: '/assets/Omran Logo.png',
             link: '#',
             github: '#'
         },
@@ -32,7 +32,7 @@ const Projects = () => {
             impact: 'Digitized 15+ manual business processes, increasing operational transparency across international project sites.',
             tech: ['VBCS', 'PCS', 'Oracle Cloud', 'Solution Architecture', 'PL/SQL'],
             details: 'Consulted on end-to-end architecture for cloud migration. Identified bottlenecked processes and designed scalable cloud-native replacements using the Oracle Cloud infrastructure.',
-            image: '/assets/4i_apps_logo.png',
+            image: '/assets/CCC Upsource Image.jpg',
             link: '#',
             github: '#'
         },
