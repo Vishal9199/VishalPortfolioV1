@@ -122,17 +122,17 @@ const Projects = () => {
                                     border: '1px solid var(--glass-border)'
                                 }}
                             >
-                                <div style={{ height: '100%', width: '100%', position: 'relative' }}>
+                                <div style={{ height: '100%', width: '100%', position: 'relative', background: 'rgba(10,10,15,1)' }}>
                                     <img
                                         src={project.image}
                                         alt={project.title}
-                                        style={{ width: '100%', height: '100%', objectFit: 'cover', opacity: 0.5, transition: '0.5s ease' }}
+                                        style={{ width: '100%', height: '100%', objectFit: 'contain', objectPosition: 'center', opacity: 1, transition: '0.5s ease' }}
                                         className="project-image"
                                     />
                                     <div style={{ 
                                         position: 'absolute', 
                                         inset: 0, 
-                                        background: 'linear-gradient(to top, rgba(5,5,5,0.95) 0%, rgba(5,5,5,0.6) 50%, rgba(5,5,5,0.2) 100%)',
+                                        background: 'linear-gradient(to top, rgba(5,5,5,0.97) 0%, rgba(5,5,5,0.85) 30%, rgba(5,5,5,0.0) 55%)',
                                         padding: '2rem',
                                         display: 'flex',
                                         flexDirection: 'column',
