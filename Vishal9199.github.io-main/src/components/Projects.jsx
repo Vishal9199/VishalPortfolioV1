@@ -72,7 +72,7 @@ const Projects = () => {
             tech: ['React', 'MySQL', 'Node.js'],
             impact: 'Supported real-time collaboration for groups of up to 50 users with Socket.io.',
             details: 'Built a full-stack application with a React frontend and Node.js/Express backend. Designed a relational database schema in MySQL for users, groups, and message persistence.',
-            image: '/assets/Vishal\'s React Web App.png',
+            image: "/assets/Vishal's React Web App.png",
             link: 'https://joyful-cassata-2afa80.netlify.app/',
             github: 'https://github.com/Vishal9199/Vishal-s-React-App.git'
         }
