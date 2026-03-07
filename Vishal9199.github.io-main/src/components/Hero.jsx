@@ -9,7 +9,7 @@ const Hero = () => {
     const magneticCV = useMagnetic(0.08);
 
     return (
-        <section id="intro" style={{ minHeight: '85vh', display: 'flex', alignItems: 'center', position: 'relative', overflow: 'hidden', padding: '4rem 0' }}>
+        <section id="intro" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', position: 'relative', padding: '10rem 0 4rem 0' }}>
             <Scene3D />
             
             <div className="container">
