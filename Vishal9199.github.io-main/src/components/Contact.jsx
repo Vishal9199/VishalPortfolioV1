@@ -10,6 +10,14 @@ const Contact = () => {
         message: ''
     });
 
+    const [copied, setCopied] = useState(false);
+
+    const copyEmail = () => {
+        navigator.clipboard.writeText("vishalkrmahatha@gmail.com");
+        setCopied(true);
+        setTimeout(() => setCopied(false), 2000);
+    };
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         setStatus('sending');
@@ -22,21 +30,6 @@ const Contact = () => {
             // Reset to idle after 5 seconds
             setTimeout(() => setStatus('idle'), 5000);
         }, 1500);
-
-        // NOTE: For a real production app, you would use a service like Formspree, Web3Forms, or EmailJS here.
-        /*
-        const response = await fetch("https://api.web3forms.com/submit", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-                Accept: "application/json",
-            },
-            body: JSON.stringify({
-                access_key: "YOUR_ACCESS_KEY_HERE",
-                ...formData
-            }),
-        });
-        */
     };
 
     const handleChange = (e) => {
@@ -47,10 +40,39 @@ const Contact = () => {
     };
 
     return (
-        <section id="contact">
+        <section id="contact" style={{ padding: '8rem 0' }}>
             <div className="container">
-                <h2 style={{ fontSize: '2.5rem', textAlign: 'center', marginBottom: '4rem' }}>
-                    Get In <span className="text-gradient">Touch</span>
+                <style>{`
+                    .copy-toast {
+                        position: fixed;
+                        bottom: 2rem;
+                        left: 50%;
+                        transform: translateX(-50%);
+                        background: var(--primary);
+                        color: #000;
+                        padding: 0.75rem 1.5rem;
+                        border-radius: 100px;
+                        font-weight: 700;
+                        z-index: 3000;
+                        box-shadow: 0 10px 30px rgba(0, 255, 163, 0.3);
+                    }
+                `}</style>
+                
+                <AnimatePresence>
+                    {copied && (
+                        <motion.div 
+                            initial={{ opacity: 0, y: 50 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: 20 }}
+                            className="copy-toast"
+                        >
+                            Email Copied to Clipboard!
+                        </motion.div>
+                    )}
+                </AnimatePresence>
+
+                <h2 style={{ fontSize: '3rem', textAlign: 'center', marginBottom: '4rem', fontWeight: 800 }}>
+                    Get In <span className="text-gradient">Touch.</span>
                 </h2>
 
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '4rem' }}>
@@ -60,33 +82,38 @@ const Contact = () => {
                         transition={{ duration: 0.6 }}
                         viewport={{ once: true }}
                     >
-                        <h3 style={{ fontSize: '1.5rem', marginBottom: '1.5rem' }}>Let's discuss something <span style={{ color: 'var(--primary)' }}>great</span></h3>
-                        <p style={{ color: 'var(--text-muted)', marginBottom: '2.5rem' }}>
+                        <h3 style={{ fontSize: '1.8rem', marginBottom: '1.5rem', fontWeight: 700 }}>Let's discuss something <span style={{ color: 'var(--primary)' }}>great.</span></h3>
+                        <p style={{ color: 'var(--text-muted)', marginBottom: '2.5rem', fontSize: '1.1rem' }}>
                             I am always open to discussing new projects, creative ideas or opportunities to be part of your visions.
                         </p>
 
-                        <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
-                            <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-                                <div className="glass" style={{ padding: '0.75rem', color: 'var(--primary)' }}>
-                                    <Mail size={20} />
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
+                            <div 
+                                onClick={copyEmail}
+                                style={{ display: 'flex', alignItems: 'center', gap: '1.25rem', cursor: 'pointer', transition: 'var(--transition)' }}
+                                className="contact-item"
+                            >
+                                <div className="glass" style={{ padding: '0.9rem', color: 'var(--primary)', borderRadius: '12px' }}>
+                                    <Mail size={24} />
                                 </div>
                                 <div>
-                                    <p style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>Email Me</p>
-                                    <a href="mailto:vishalkrmahatha@gmail.com" style={{ fontWeight: 500 }}>vishalkrmahatha@gmail.com</a>
+                                    <p style={{ fontSize: '0.8rem', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '1px' }}>Email Me</p>
+                                    <span style={{ fontWeight: 600, fontSize: '1.1rem' }}>vishalkrmahatha@gmail.com</span>
                                 </div>
                             </div>
 
-                            <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-                                <div className="glass" style={{ padding: '0.75rem', color: 'var(--primary)' }}>
-                                    <MapPin size={20} />
+                            <div style={{ display: 'flex', alignItems: 'center', gap: '1.25rem' }}>
+                                <div className="glass" style={{ padding: '0.9rem', color: 'var(--primary)', borderRadius: '12px' }}>
+                                    <MapPin size={24} />
                                 </div>
                                 <div>
-                                    <p style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>Location</p>
-                                    <p style={{ fontWeight: 500 }}>Bokaro / Chennai, India</p>
+                                    <p style={{ fontSize: '0.8rem', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '1px' }}>Location</p>
+                                    <p style={{ fontWeight: 600, fontSize: '1.1rem' }}>Bokaro / Chennai, India</p>
                                 </div>
                             </div>
                         </div>
                     </motion.div>
+
 
                     <motion.form
                         initial={{ opacity: 0, x: 30 }}
