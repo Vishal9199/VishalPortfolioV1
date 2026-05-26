@@ -50,7 +50,7 @@ const Navbar = () => {
                         {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
                     </button>
 
-                    <a href="/legacy/assets/resume/Vishal_Resume_07_May.pdf" target="_blank" rel="noreferrer" className="glass resume-btn">
+                    <a href="/legacy/assets/resume/Vishal_Kumar_Mahatha_Resume.pdf" target="_blank" rel="noreferrer" className="glass resume-btn">
                         <FileText size={18} />
                         Resume
                     </a>
@@ -75,7 +75,7 @@ const Navbar = () => {
                             {link.name}
                         </a>
                     ))}
-                    <a href="/legacy/assets/resume/Vishal_Resume_07_May.pdf" target="_blank" rel="noreferrer" className="resume-btn" onClick={() => setIsOpen(false)}>
+                    <a href="/legacy/assets/resume/Vishal_Kumar_Mahatha_Resume.pdf" target="_blank" rel="noreferrer" className="resume-btn" onClick={() => setIsOpen(false)}>
                         Resume
                     </a>
                 </div>

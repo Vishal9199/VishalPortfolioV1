@@ -59,7 +59,7 @@ const Hero = () => {
                         <motion.a 
                             ref={magneticCV.ref}
                             animate={{ x: magneticCV.x, y: magneticCV.y }}
-                            href="/legacy/assets/resume/Vishal_Resume_07_May.pdf" 
+                            href="/legacy/assets/resume/Vishal_Kumar_Mahatha_Resume.pdf" 
                             target="_blank" 
                             rel="noreferrer" 
                             className="glass" 
